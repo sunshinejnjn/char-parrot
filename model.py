@@ -157,9 +157,9 @@ class CharParrot:
                     running_loss += loss.item()
                     t.set_postfix(loss=running_loss/i)
             self.dataloader.reset()
-            if self.save_file is not None:
-                print("Saving progress...")
-                self.save(self.save_file)
+        if self.save_file is not None:
+            print("Saving progress...")
+            self.save(self.save_file)
         print("\nDone! Final loss: %f" % (running_loss / len(self.dataloader)))
             
     def generate(self, seed, length, prev_chars, temperature=1, quiet=False):
